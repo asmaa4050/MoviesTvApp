@@ -42,33 +42,24 @@ class MovieTableViewCell: UITableViewCell {
                     ratingLabel.text = cellMovie.ratingText
 
                 }
-            print( cellMovie!.posterURL)
+           
                MovieImage.kf.setImage(with:  cellMovie!.posterURL)
            }
        }
 
     
     func setupCell(){
-       MovieImage.contentMode = .scaleAspectFill
+         MovieImage.contentMode = .scaleAspectFill
          MovieName.textColor = UIColor.black
          MovieName.font = UIFont.systemFont(ofSize: 15)
+        MovieName.numberOfLines = 0
+        MovieName.lineBreakMode = NSLineBreakMode.byWordWrapping
+        MovieName.sizeToFit()
         
 
      }
-    /* func configureCell(url :String ,  title :String){
-         
-         MovieName.text = title
-         guard let url = URL(string: url) else {
-             return
-         }
-         
-         MovieImage.kf.setImage(with: url)
-     }*/
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+   
+   
     
     
     

@@ -9,13 +9,11 @@
 import UIKit
 import RxSwift
 import RxCocoa
-
-
+import PKHUD
 
 class HomeViewController: UIViewController , UICollectionViewDelegateFlowLayout{
     
     @IBOutlet weak var moviesTabelView: UITableView!
-    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     @IBOutlet weak var moviesCategroiesCollectionView: UICollectionView!
     
@@ -46,9 +44,11 @@ class HomeViewController: UIViewController , UICollectionViewDelegateFlowLayout{
         
         let SearchBarButton = UIBarButtonItem(image: UIImage(named: "icn-nav-search" ) , style: .done, target: self, action: #selector(showSearchViewController))
         self.navigationItem.rightBarButtonItem = SearchBarButton
-        let logo = UIImage(named: "icn-nav-marvel.png")
-        let imageView = UIImageView(image:logo)
-        self.navigationItem.titleView = imageView
+        let appearance = UINavigationBarAppearance()
+        appearance.titleTextAttributes = [.foregroundColor: UIColor(rgb: 0x3478f6)] // With a red
+        navigationItem.standardAppearance = appearance
+        
+       
     }
     
     // MARK: searchBar
@@ -60,10 +60,14 @@ class HomeViewController: UIViewController , UICollectionViewDelegateFlowLayout{
     // MARK: Binding
     func setupBinding(){
         //-----------------loading ------------
-        homeViewModel.showLoading.asObservable()
-            .observeOn(MainScheduler.instance)
-            .bind(to: indicatorView.rx.isHidden)
-            .disposed(by: disposeBag)
+        
+        homeViewModel.showLoadingHud.bind() { [weak self] visible in
+                   if let `self` = self {
+                       PKHUD.sharedHUD.contentView = PKHUDSystemActivityIndicatorView()
+                       visible ? PKHUD.sharedHUD.show(onView: self.view) : PKHUD.sharedHUD.hide()
+                   }
+               }
+       
         
         
         //-----------------home error  ------------
@@ -161,6 +165,7 @@ class HomeViewController: UIViewController , UICollectionViewDelegateFlowLayout{
     
     func showMovieDetialsViewController(movieId : Int){
         if let movieDetailsViewController = UIStoryboard(name: "Storyboard", bundle: nil).instantiateViewController(withIdentifier: "MovieDetailsViewController") as? MovieDetailsViewController {
+            movieDetailsViewController.setMovieId(movieId: movieId)
             self.navigationController?.pushViewController(movieDetailsViewController, animated: true)
         }
     }

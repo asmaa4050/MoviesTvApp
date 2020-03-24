@@ -40,14 +40,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "62336BEC-6B04-4B79-8B42-5E285D7B2B74"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviesTvApp/source/ViewModels/SearchViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "fetchMoviesSearchResult(query:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -56,14 +56,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1867E791-7E8D-40CF-83F2-5F42CAC3C174"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviesTvApp/source/ViewModels/SearchViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "fetchMoviesSearchResult(query:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "MoviesTvApp/source/ViewModels/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "fetchMoviesData(endpoint:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,8 +110,8 @@
             filePath = "MoviesTvApp/source/Controllers/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "setupBinding()"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,9 +126,9 @@
             filePath = "MoviesTvApp/source/Controllers/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
-            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "getMoviesByCategoryName(catIndex:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -142,9 +142,9 @@
             filePath = "MoviesTvApp/source/Controllers/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
-            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "getMoviesByCategoryName(catIndex:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

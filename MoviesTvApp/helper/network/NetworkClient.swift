@@ -23,6 +23,14 @@ struct NetworkClient {
             onFailure(error)
         }
     }
+    static func fetchMovieDetails(movieId :Int ,onSuccess: @escaping onSuccess<Movie>,
+                            onFailure: @escaping onFailure){
+        performRequest( router: APIRouter.getMovieDetails(movieId :movieId), success: { (model) in
+            onSuccess(model)
+        }) { (error) in
+            onFailure(error)
+        }
+    }
     
     static func searchMovies(query : String, onSuccess: @escaping onSuccess<MoviesResponse>,
                             onFailure: @escaping onFailure){

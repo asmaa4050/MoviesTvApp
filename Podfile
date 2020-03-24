@@ -10,6 +10,7 @@ target 'MoviesTvApp' do
    pod 'Kingfisher'
    pod 'RxSwift'
    pod 'RxCocoa'
+  pod 'PKHUD', '~> 5.0'
 
 
   target 'MoviesTvAppTests' do

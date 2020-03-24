@@ -13,11 +13,12 @@ enum APIRouter: URLRequestConvertible {
     
     case getMovies(endpoint : String)
     case searchMovies (query :String)
+    case getMovieDetails(movieId :Int)
   
     
     var method: HTTPMethod {
         switch self {
-        case .getMovies , .searchMovies(_) :
+        case .getMovies , .searchMovies(_) , .getMovieDetails(_):
             return .get
        
         }
@@ -30,6 +31,8 @@ enum APIRouter: URLRequestConvertible {
             return "/movie/\(endpoint)"
          case .searchMovies:
             return "/search/movie"
+    case let .getMovieDetails(movieId):
+        return "/movie/\(movieId)"
         
         }
         
@@ -41,6 +44,8 @@ enum APIRouter: URLRequestConvertible {
             return ["api_key": Utils.apiKey]
         case .searchMovies(let query):
             return ["api_key": Utils.apiKey, "query": query]
+        case .getMovieDetails(let movieId):
+             return ["api_key": Utils.apiKey]
         }
        
     }

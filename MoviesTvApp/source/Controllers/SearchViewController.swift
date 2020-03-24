@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
-
+import PKHUD
 class SearchViewController: UIViewController ,UISearchBarDelegate {
     
     @IBOutlet weak var searchResultTabelView: UITableView!
@@ -21,6 +21,7 @@ class SearchViewController: UIViewController ,UISearchBarDelegate {
 
            setupNavigationBar()
            setupBinding()
+           searchResultTabelView.tableFooterView = UIView(frame: .zero)
         
         
     }
@@ -32,7 +33,7 @@ class SearchViewController: UIViewController ,UISearchBarDelegate {
         let searchBar = UISearchBar(frame: CGRect.zero)
            searchBar.delegate = self
            searchBar.showsCancelButton = true
-           searchBar.tintColor = UIColor.red
+           searchBar.tintColor = UIColor(rgb: 0x3478f6)
            self.navigationItem.titleView = searchBar
          navigationController?.navigationBar.barTintColor = UIColor.white
         self.navigationItem.setHidesBackButton(true, animated: true);
@@ -72,6 +73,16 @@ class SearchViewController: UIViewController ,UISearchBarDelegate {
     // MARK: Binding
     
     func setupBinding(){
+        
+        //------------loading ------------
+              searchViewModel.showLoadingHud.bind() { [weak self] visible in
+                                if let `self` = self {
+                                    PKHUD.sharedHUD.contentView = PKHUDSystemActivityIndicatorView()
+                                    visible ? PKHUD.sharedHUD.show(onView: self.view) : PKHUD.sharedHUD.hide()
+                                }
+                            }
+        
+        //----------------- movielist--------
        searchViewModel.searchMoviesList
         .observeOn(MainScheduler.instance)
         .bind(to: self.searchMoviesList)
@@ -84,6 +95,8 @@ class SearchViewController: UIViewController ,UISearchBarDelegate {
                    }.disposed(by: disposeBag)
         
         searchResultTabelView.rowHeight = 80
+        
+
         
     }
 

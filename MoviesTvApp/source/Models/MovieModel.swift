@@ -28,7 +28,17 @@ public struct Movie: Codable {
     public let genres: [MovieGenre]?
     public let videos: MovieVideoResponse?
     public let credits: MovieCreditResponse?
-    public let adult: Bool
+    public var type : String?
+    public var adult: Bool {
+        didSet{
+            if(adult){
+                type = "adult"
+            }
+            else{
+               type = "for all"
+            }
+        }
+    }
     public let runtime: Int?
     public var posterURL: URL {
         return URL(string: "https://image.tmdb.org/t/p/w500\(poster_path ?? "")")!
@@ -68,6 +78,7 @@ public struct MovieVideo: Codable {
     public let site: String
     public let size: Int
     public let type: String
+    
     
     public var youtubeURL: URL? {
         guard site == "YouTube" else {
