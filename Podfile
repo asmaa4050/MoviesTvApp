@@ -6,7 +6,11 @@ target 'MoviesTvApp' do
   use_frameworks!
 
   # Pods for MoviesTvApp
-  pod 'Alamofire', '~> 5.0'
+   pod 'Alamofire', '~> 5.0'
+   pod 'Kingfisher'
+   pod 'RxSwift'
+   pod 'RxCocoa'
+
 
   target 'MoviesTvAppTests' do
     inherit! :search_paths

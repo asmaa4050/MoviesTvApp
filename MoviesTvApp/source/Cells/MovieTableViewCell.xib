@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieTableViewCell" rowHeight="105" id="KGk-i7-Jjw" customClass="MovieTableViewCell" customModule="MoviesTvApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="518" height="105"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="518" height="105"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7Zd-QL-T3b">
+                        <rect key="frame" x="16" y="5.5" width="95" height="94"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="7Zd-QL-T3b" secondAttribute="height" multiplier="1:1" id="A97-jJ-Ta6"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5F-1B-DBg">
+                        <rect key="frame" x="127" y="19" width="391" height="0.0"/>
+                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                        <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhB-ts-Meg">
+                        <rect key="frame" x="127" y="97" width="391" height="0.0"/>
+                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                        <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="7Zd-QL-T3b" secondAttribute="bottom" constant="5" id="CrW-Zy-0xa"/>
+                    <constraint firstItem="7Zd-QL-T3b" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="DuQ-G6-4Wd"/>
+                    <constraint firstItem="7Zd-QL-T3b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="JlK-kd-E8N"/>
+                    <constraint firstAttribute="bottom" secondItem="yhB-ts-Meg" secondAttribute="bottom" constant="8" id="LqJ-HC-geY"/>
+                    <constraint firstItem="yhB-ts-Meg" firstAttribute="leading" secondItem="7Zd-QL-T3b" secondAttribute="trailing" constant="16" id="Ram-1g-mM4"/>
+                    <constraint firstAttribute="trailing" secondItem="yhB-ts-Meg" secondAttribute="trailing" id="gF2-Mv-ThT"/>
+                    <constraint firstItem="r5F-1B-DBg" firstAttribute="leading" secondItem="7Zd-QL-T3b" secondAttribute="trailing" constant="16" id="lWG-eG-Wny"/>
+                    <constraint firstAttribute="trailing" secondItem="r5F-1B-DBg" secondAttribute="trailing" id="zJT-W1-uLz"/>
+                    <constraint firstItem="r5F-1B-DBg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="zR9-u1-Kq9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="MovieImage" destination="7Zd-QL-T3b" id="ynD-jo-0sv"/>
+                <outlet property="MovieName" destination="r5F-1B-DBg" id="YPY-Kq-q5N"/>
+                <outlet property="ratingLabel" destination="yhB-ts-Meg" id="llE-HS-vIZ"/>
+            </connections>
+            <point key="canvasLocation" x="128.98550724637681" y="18.415178571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="pencil.circle.fill" catalog="system" width="64" height="60"/>
+    </resources>
+</document>

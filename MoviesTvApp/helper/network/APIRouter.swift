@@ -11,13 +11,13 @@ import Alamofire
 
 enum APIRouter: URLRequestConvertible {
     
-    case getCharachters(limit :Int , offset: Int)
-    case getCharachterDetails(id: Int, detailsType : String)
-    case getCharachtersByName (searchText : String)
+    case getMovies(endpoint : String)
+    case searchMovies (query :String)
+  
     
     var method: HTTPMethod {
         switch self {
-        case .getCharachters(_,_) , .getCharachterDetails(_) , .getCharachtersByName :
+        case .getMovies , .searchMovies(_) :
             return .get
        
         }
@@ -26,22 +26,21 @@ enum APIRouter: URLRequestConvertible {
     
  var path: String {
     switch self {
-        case .getCharachters(_,_) , .getCharachtersByName:
-            return "characters"
-        case let .getCharachterDetails(id , detailsType) :
-            return "characters/\(id)/\(detailsType)"
+        case let .getMovies(endpoint):
+            return "/movie/\(endpoint)"
+         case .searchMovies:
+            return "/search/movie"
+        
         }
         
     }
     
     var parameters: Parameters? {
         switch self {
-        case .getCharachters(let limit , let offset):
-            return ["apikey": Utils.apikey , "ts": Utils.ts , "hash" : Utils.hash ,"limit" : limit ,"offset": offset]
-        case .getCharachterDetails(_):
-            return ["apikey": Utils.apikey , "ts": Utils.ts , "hash" : Utils.hash]
-        case .getCharachtersByName(let searchText):
-            return ["apikey": Utils.apikey , "ts": Utils.ts , "hash" : Utils.hash , "nameStartsWith" : searchText]
+        case .getMovies:
+            return ["api_key": Utils.apiKey]
+        case .searchMovies(let query):
+            return ["api_key": Utils.apiKey, "query": query]
         }
        
     }

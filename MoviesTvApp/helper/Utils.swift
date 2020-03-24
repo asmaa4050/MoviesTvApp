@@ -7,14 +7,11 @@
 //
 
 import Foundation
-import CryptoSwift
+
 struct Utils{
   
-       static let apikey = "f2f385b7a11b8c2bae357fd4f7fbd58b"
-       static let privatekey = "c3e1975bd00dba16a17dc09c36a6e45a566b637c"
-       static let URL = "http://gateway.marvel.com/v1/public/"
-       static let ts = Date().timeIntervalSince1970.description
-       static let hash = "\(ts)\(privatekey)\(apikey)".md5()
+         static let URL = "https://api.themoviedb.org/3"
+         static let apiKey = "13526a435cf73bafd0ac6a76104ca94c"
     
     enum ContentType: String {
         case json = "application/x-www-form-urlencoded; charset=utf-8"

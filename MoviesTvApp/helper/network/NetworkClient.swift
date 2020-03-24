@@ -15,33 +15,28 @@ struct NetworkClient {
     typealias onFailure = ( (_ error: Error) -> ())
     
     
-    static func fetchCharachters(limit : Int , offset : Int ,onSuccess: @escaping onSuccess<ResponseModel>,
+    static func fetchMovies(endpoint :String ,onSuccess: @escaping onSuccess<MoviesResponse>,
                             onFailure: @escaping onFailure){
-        performRequest( router: APIRouter.getCharachters(limit: limit, offset: offset), success: { (model) in
+        performRequest( router: APIRouter.getMovies(endpoint :endpoint), success: { (model) in
             onSuccess(model)
         }) { (error) in
             onFailure(error)
         }
     }
     
-    static func searchCharachter (searchText : String , onSuccess: @escaping onSuccess<ResponseModel> , onFailure: @escaping onFailure ){
-        
-        performRequest( router: APIRouter.getCharachtersByName(searchText : searchText), success: { (model) in
+    static func searchMovies(query : String, onSuccess: @escaping onSuccess<MoviesResponse>,
+                            onFailure: @escaping onFailure){
+        performRequest( router: APIRouter.searchMovies(query: query), success: { (model) in
             onSuccess(model)
         }) { (error) in
             onFailure(error)
         }
     }
-    static func fetchCharacterDetails (charId : Int , detailsType : String, onSuccess: @escaping onSuccess<ResponseModel> , onFailure: @escaping onFailure){
-        performRequest(router: APIRouter.getCharachterDetails(id: charId ,detailsType : detailsType), success: { (model) in
-            onSuccess(model)
-        }) { (error) in
-            onFailure(error)
-        }
-    }
+    
+   
     
     static func performRequest<T>(router: APIRouter, success: @escaping onSuccess<T>, failure: @escaping onFailure) where T: Decodable{
-            Alamofire.request(router).responseJSON { (response) in
+            AF.request(router).responseJSON { (response) in
                 do {
                     print(response)
                     let responseModel = try JSONDecoder().decode(T.self, from: response.data!)
