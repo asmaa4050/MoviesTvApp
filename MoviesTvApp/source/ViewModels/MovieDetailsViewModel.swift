@@ -14,6 +14,7 @@ class MovieDetailsViewModel {
     let showLoadingHud: Bindable = Bindable(false)
     
     func fetchMovieByID(movieId : Int){
+        print("movieeeeId\(movieId)")
         showLoadingHud.value = true
         NetworkClient.fetchMovieDetails(movieId : movieId ,onSuccess: { (model) in
             print("success")

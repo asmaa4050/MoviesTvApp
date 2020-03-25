@@ -29,11 +29,24 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhB-ts-Meg">
-                        <rect key="frame" x="127" y="97" width="391" height="0.0"/>
+                        <rect key="frame" x="127" y="97" width="346" height="0.0"/>
                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="13"/>
                         <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tl8-j8-7cf">
+                        <rect key="frame" x="483" y="71.5" width="25" height="22.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="Qsc-Vx-HXm"/>
+                            <constraint firstAttribute="width" constant="25" id="dI0-ek-OrR"/>
+                        </constraints>
+                        <state key="normal" title="Button" backgroundImage="suit.heart" catalog="system">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="addMovieToWatchListAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="x0T-eC-G7T"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
@@ -42,7 +55,9 @@
                     <constraint firstItem="7Zd-QL-T3b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="JlK-kd-E8N"/>
                     <constraint firstAttribute="bottom" secondItem="yhB-ts-Meg" secondAttribute="bottom" constant="8" id="LqJ-HC-geY"/>
                     <constraint firstItem="yhB-ts-Meg" firstAttribute="leading" secondItem="7Zd-QL-T3b" secondAttribute="trailing" constant="16" id="Ram-1g-mM4"/>
-                    <constraint firstAttribute="trailing" secondItem="yhB-ts-Meg" secondAttribute="trailing" id="gF2-Mv-ThT"/>
+                    <constraint firstItem="tl8-j8-7cf" firstAttribute="leading" secondItem="yhB-ts-Meg" secondAttribute="trailing" constant="10" id="bPs-q7-pZh"/>
+                    <constraint firstAttribute="bottom" secondItem="tl8-j8-7cf" secondAttribute="bottom" constant="10" id="ejW-Fh-PfT"/>
+                    <constraint firstAttribute="trailing" secondItem="tl8-j8-7cf" secondAttribute="trailing" constant="10" id="l9p-uN-OEZ"/>
                     <constraint firstItem="r5F-1B-DBg" firstAttribute="leading" secondItem="7Zd-QL-T3b" secondAttribute="trailing" constant="16" id="lWG-eG-Wny"/>
                     <constraint firstAttribute="trailing" secondItem="r5F-1B-DBg" secondAttribute="trailing" id="zJT-W1-uLz"/>
                     <constraint firstItem="r5F-1B-DBg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="zR9-u1-Kq9"/>
@@ -52,6 +67,7 @@
             <connections>
                 <outlet property="MovieImage" destination="7Zd-QL-T3b" id="ynD-jo-0sv"/>
                 <outlet property="MovieName" destination="r5F-1B-DBg" id="YPY-Kq-q5N"/>
+                <outlet property="addToWatchListBtn" destination="tl8-j8-7cf" id="EwM-nq-Dg9"/>
                 <outlet property="ratingLabel" destination="yhB-ts-Meg" id="llE-HS-vIZ"/>
             </connections>
             <point key="canvasLocation" x="128.98550724637681" y="18.415178571428569"/>
@@ -59,5 +75,6 @@
     </objects>
     <resources>
         <image name="pencil.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="suit.heart" catalog="system" width="64" height="54"/>
     </resources>
 </document>

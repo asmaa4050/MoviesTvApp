@@ -104,3 +104,8 @@ public struct MovieCrew: Codable {
     public let job: String
     public let name: String
 }
+
+public struct ResponseSuccessModel : Codable{
+   public let  status_code : Int
+   public let   status_message : String
+}

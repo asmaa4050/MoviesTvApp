@@ -18,6 +18,8 @@ class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var ratingLabel: UILabel!
     
+    @IBOutlet weak var addToWatchListBtn: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
             setupCell()
@@ -55,12 +57,20 @@ class MovieTableViewCell: UITableViewCell {
         MovieName.numberOfLines = 0
         MovieName.lineBreakMode = NSLineBreakMode.byWordWrapping
         MovieName.sizeToFit()
+        addToWatchListBtn.setTitle("", for: .normal)
+        addToWatchListBtn.setBackgroundImage(UIImage(named: "icon_fav_gray"), for: .normal)
         
 
      }
-   
-   
     
-    
+    @IBAction func addMovieToWatchListAction(_ sender: Any) {
+        NetworkClient.addMovieToWatchList(movieId: 11,onSuccess: { (model) in
+            print("success")
+            
+        }) { [unowned self]  error in
+            print(error)
+            
+        }
+    }
     
 }

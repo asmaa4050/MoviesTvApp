@@ -41,6 +41,16 @@ struct NetworkClient {
         }
     }
     
+    static func addMovieToWatchList(movieId : Int ,onSuccess: @escaping onSuccess<ResponseSuccessModel>,
+                        onFailure: @escaping onFailure){
+    performRequest( router: APIRouter.addToFav(movieId: movieId), success: { (model) in
+        onSuccess(model)
+    }) { (error) in
+        onFailure(error)
+    }
+        
+    }
+    
    
     
     static func performRequest<T>(router: APIRouter, success: @escaping onSuccess<T>, failure: @escaping onFailure) where T: Decodable{
